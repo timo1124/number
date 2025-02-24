@@ -5,10 +5,9 @@
 using namespace std;
 
 int main() {
-    // 創建兩個數字隊列
     queue<int> queue1, queue2;
 
-    // 加入數字
+
     queue1.push(1);
     queue1.push(3);
     queue1.push(5);
@@ -24,7 +23,6 @@ int main() {
         queue1.pop();
     }
 
-    // 合併反轉後的 queue1 和 queue2
     queue<int> mergedQueue;
     while (!tempStack.empty()) {
         mergedQueue.push(tempStack.top());
@@ -35,7 +33,6 @@ int main() {
         queue2.pop();
     }
 
-    // 顯示合併後的結果
     cout << "Merged Queue: ";
     while (!mergedQueue.empty()) {
         cout << mergedQueue.front() << " ";
