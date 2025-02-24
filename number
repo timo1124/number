@@ -1,0 +1,47 @@
+#include <iostream>
+#include <queue>
+#include <stack>
+
+using namespace std;
+
+int main() {
+    // 創建兩個數字隊列
+    queue<int> queue1, queue2;
+
+    // 加入數字
+    queue1.push(1);
+    queue1.push(3);
+    queue1.push(5);
+
+    queue2.push(2);
+    queue2.push(4);
+    queue2.push(6);
+
+    // 使用 stack 來反轉 queue1
+    stack<int> tempStack;
+    while (!queue1.empty()) {
+        tempStack.push(queue1.front());
+        queue1.pop();
+    }
+
+    // 合併反轉後的 queue1 和 queue2
+    queue<int> mergedQueue;
+    while (!tempStack.empty()) {
+        mergedQueue.push(tempStack.top());
+        tempStack.pop();
+    }
+    while (!queue2.empty()) {
+        mergedQueue.push(queue2.front());
+        queue2.pop();
+    }
+
+    // 顯示合併後的結果
+    cout << "Merged Queue: ";
+    while (!mergedQueue.empty()) {
+        cout << mergedQueue.front() << " ";
+        mergedQueue.pop();
+    }
+    cout << endl;
+
+    return 0;
+}
